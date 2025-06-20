@@ -50,6 +50,9 @@ public class Users {
     @CreationTimestamp
     private Instant created_at;
 
+    @UpdateTimestamp
+    private Instant last_updated_at;
+
     public Users(String username, String password, String email) {
 
         this.username = username;
@@ -110,6 +113,4 @@ public class Users {
         this.last_updated_at = last_updated_at;
     }
 
-    @UpdateTimestamp
-    private Instant last_updated_at;
 }

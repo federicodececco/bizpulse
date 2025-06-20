@@ -1,7 +1,10 @@
 package com.bizpulse.backend.model;
 
+import java.time.Instant;
 import java.util.Set;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -30,6 +33,12 @@ public class Role {
     @JsonBackReference
     private Set<User> users;
 
+    @CreationTimestamp
+    private Instant created_at;
+
+    @UpdateTimestamp
+    private Instant last_updated_at;
+
     public Role(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -37,6 +46,22 @@ public class Role {
 
     public Role() {
 
+    }
+
+    public Instant getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Instant created_at) {
+        this.created_at = created_at;
+    }
+
+    public Instant getLast_updated_at() {
+        return last_updated_at;
+    }
+
+    public void setLast_updated_at(Instant last_updated_at) {
+        this.last_updated_at = last_updated_at;
     }
 
     public Integer getId() {
