@@ -21,6 +21,8 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private Integer user_id;
+
     @Column(precision = 8)
     private Double amount;
 
