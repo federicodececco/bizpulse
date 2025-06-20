@@ -14,8 +14,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -24,7 +24,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +53,7 @@ public class Users {
     @UpdateTimestamp
     private Instant last_updated_at;
 
-    public Users(String username, String password, String email) {
+    public User(String username, String password, String email) {
 
         this.username = username;
         this.password = password;
@@ -61,7 +61,7 @@ public class Users {
 
     }
 
-    public Users() {
+    public User() {
 
     }
 
