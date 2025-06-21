@@ -12,9 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bizpulse.backend.service.S3Service;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
+@CrossOrigin("http://localhost:5173")
 @RequestMapping("/api/upload")
 public class S3Controller {
 
