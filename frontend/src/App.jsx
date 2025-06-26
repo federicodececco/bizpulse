@@ -12,6 +12,7 @@ import {
 /* pages */
 import HomePage from './pages/HomePage';
 import DefaultLayout from './layout/DefaultLayout';
+import SubmitReceipt from './pages/SubmitReceipt';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path='/' element={<HomePage />} />
+            <Route path='/submitReceipt' element={<SubmitReceipt />} />
           </Route>
         </Routes>
       </BrowserRouter>

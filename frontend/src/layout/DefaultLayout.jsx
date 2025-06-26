@@ -74,8 +74,8 @@ export default function DefaultLayout() {
         </Navbar>
       </div>
       {/* Outlet/sidebar */}
-      <div className='flex-1'>
-        <div className='grid grid-cols-6 h-full '>
+      <div className='flex-1 dark:bg-zinc-800'>
+        <div className='grid grid-cols-6 h-full'>
           {/* sidebar */}
           <div className='col-span-1 '>
             <Sidebar aria-label='Default sidebar example'>
@@ -98,8 +98,8 @@ export default function DefaultLayout() {
                   <SidebarItem href='#' icon={HiUser}>
                     Users
                   </SidebarItem>
-                  <SidebarItem href='#' icon={HiShoppingBag}>
-                    Products
+                  <SidebarItem href='/submitReceipt' icon={HiShoppingBag}>
+                    Add Receipt
                   </SidebarItem>
                   <SidebarItem href='#' icon={HiArrowSmRight}>
                     Sign In

@@ -5,6 +5,7 @@ import java.time.Instant;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +15,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "transacitons")
+@CrossOrigin(origins = "http://localhost:5173")
+@Table(name = "transactions")
 public class Transaction {
 
     @Id
@@ -113,6 +115,14 @@ public class Transaction {
 
     public void setLast_updated_at(Instant last_updated_at) {
         this.last_updated_at = last_updated_at;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
 }
