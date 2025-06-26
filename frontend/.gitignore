@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+.prettierrc
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,9 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-public
-src/pages/AuthPages
-src/pages/**
-src/components/**
-src/icons/**
