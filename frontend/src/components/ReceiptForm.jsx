@@ -2,7 +2,7 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { Link, useNavigate } from 'react-router';
 import axios from '../../api/axios';
 import { useState } from 'react';
-
+import { useToastContext } from '../contexts/ToastContext';
 export default function ReceiptForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ export default function ReceiptForm() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const { status, setStatus } = useToastContext();
 
   const handleFieldChange = (elem) => {
     const { name, value } = elem.target;
@@ -36,8 +37,10 @@ export default function ReceiptForm() {
         type: formData.type,
         date: formData.date,
       };
+
       const res = await axios.post('api/transaction/', transactionFinalData);
-      if (res.status === 200) {
+
+      if (res.status >= 200 && res.status < 300) {
         setFormData({
           amount: '',
           category: '',
@@ -45,8 +48,8 @@ export default function ReceiptForm() {
           type: '',
           date: new Date().toISOString().split('T')[0],
         });
-
-        console.log('successo');
+        /* trigger toast */
+        setStatus(true);
       }
     } catch (err) {
       console.error('erprre brutto', err);
