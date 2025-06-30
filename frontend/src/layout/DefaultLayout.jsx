@@ -54,7 +54,9 @@ export default function DefaultLayout() {
                   name@flowbite.com
                 </span>
               </DropdownHeader>
-              <DropdownItem>Dashboard</DropdownItem>
+              <a href='/'>
+                <DropdownItem>Dashboard</DropdownItem>
+              </a>
               <DropdownItem>Settings</DropdownItem>
               <DropdownItem>Earnings</DropdownItem>
               <DropdownDivider />
@@ -81,7 +83,7 @@ export default function DefaultLayout() {
             <Sidebar aria-label='Default sidebar example'>
               <SidebarItems>
                 <SidebarItemGroup>
-                  <SidebarItem href='#' icon={HiChartPie}>
+                  <SidebarItem href='/' icon={HiChartPie}>
                     Dashboard
                   </SidebarItem>
                   <SidebarItem

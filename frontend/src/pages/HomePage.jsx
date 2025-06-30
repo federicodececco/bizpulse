@@ -20,7 +20,7 @@ export default function HomePage() {
     }
   };
   return (
-    <Card className='max-w-sm'>
+    <Card className='lg:w-100 mt-4 '>
       <TransactionsChart></TransactionsChart>
     </Card>
   );

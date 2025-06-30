@@ -1,5 +1,6 @@
 import axios from '../../api/axios';
 import { useEffect, useState } from 'react';
+import AreaChart from './AreaChart';
 export default function TransactionsChart() {
   const [transactionsData, setTransactionsData] = useState([]);
   const [chartData, setChartData] = useState([]);
@@ -37,4 +38,10 @@ export default function TransactionsChart() {
     compileData();
     console.log(chartData);
   }, [transactionsData]);
+
+  return (
+    <div className='h-90 w-90   '>
+      <AreaChart externalData={chartData} />
+    </div>
+  );
 }
