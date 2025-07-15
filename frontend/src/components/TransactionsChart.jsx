@@ -26,7 +26,6 @@ export default function TransactionsChart({ data, type }) {
   };
   useEffect(() => {
     compileData();
-    console.log(chartData);
   }, [transactionsData]);
 
   return (

@@ -19,7 +19,7 @@ export default function ProgressBar({ goals, type }) {
     <>
       {goal.goal_name === 'tetto di spesa' ? (
         <>
-          <div className='text-lg font-medium dark:text-white'>
+          <div className='text-lg font-medium dark:text-white mt-4 mb-1'>
             {goal.goal_name}
           </div>
           <Progress
@@ -36,7 +36,7 @@ export default function ProgressBar({ goals, type }) {
       )}
       {goal.goal_name === 'risparmi generali' ? (
         <>
-          <div className='text-lg font-medium dark:text-white'>
+          <div className='text-lg font-medium dark:text-white mt-4 mb-1'>
             {goal.goal_name}
           </div>
           <Progress
