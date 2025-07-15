@@ -16,7 +16,7 @@ export default function ReceiptTable({ data }) {
     }
   }, [data]);
   return (
-    <div className='overflow-x-auto'>
+    <div className='h-full overflow-x-auto overflow-y-auto  hide-scrollbar'>
       <Table>
         <TableHead>
           <TableRow>

@@ -37,7 +37,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className='mt-4 mr-4'>
+    <div className='h-full flex flex-col mt-4 mr-4'>
       {/* graphs */}
       <div className='grid grid-cols-3 gap-6 '>
         <Card className='  max-h-100'>
@@ -58,7 +58,7 @@ export default function HomePage() {
         </div>
       </div>
       {/* receipt table */}
-      <div className='mt-10'>
+      <div className='flex-1 mt-10 overflow-hidden'>
         <ReceiptTable data={data}></ReceiptTable>
       </div>
     </div>
