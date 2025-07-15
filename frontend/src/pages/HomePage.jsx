@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import axios from '../../api/axios';
 import { Button, Card } from 'flowbite-react';
 import TransactionsChart from '../components/TransactionsChart';
+import ProgressBar from '../components/ProgressBar';
 export default function HomePage() {
   const [data, setData] = useState([]);
   const [goals, setGoals] = useState([]);
@@ -19,6 +20,7 @@ export default function HomePage() {
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchGoals = async () => {
     try {
       const res = await axios.get('api/goal/');
@@ -35,8 +37,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <div className='grid grid-cols-3 gap-6 mt-4 mr-4'>
+    <div className='mt-4 mr-4'>
+      <div className='grid grid-cols-3 gap-6 '>
         <Card className='  max-h-100'>
           <TransactionsChart data={data} type={'area'}></TransactionsChart>
         </Card>
@@ -47,7 +49,12 @@ export default function HomePage() {
           <TransactionsChart data={data} type={'area'}></TransactionsChart>
         </Card>
       </div>
-      <div className='grid grid cols-2'></div>
+      <div className='grid grid-cols-2'>
+        <div className='col-span-1'>
+          <ProgressBar goals={goals} type={'tetto di spesa'}></ProgressBar>
+          <ProgressBar goals={goals} type={'risparmi generali'}></ProgressBar>
+        </div>
+      </div>
     </div>
   );
 }
