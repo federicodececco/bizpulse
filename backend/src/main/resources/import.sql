@@ -45,3 +45,7 @@ INSERT INTO transactions (id, user_id, amount, vendor, category, date, type) VAL
 INSERT INTO transactions (id, user_id, amount, vendor, category, date, type) VALUES (20, 1, 60.00, 'Netflix', 'abbonamento', '2025-05-15', 'expense');
 
 INSERT INTO transactions (id, user_id, amount, vendor, category, date, type) VALUES (21, 1, 1500.00, 'Azienda Srl', 'stipendio', '2025-06-01', 'income');
+
+
+INSERT INTO goals(id, user_id, goal_name, target_value, current_value, deadline ) VALUES (1, 1, "tetto di spesa", 2000.00, 890.07, "2025-12-31")
+INSERT INTO goals(id, user_id, goal_name, target_value, current_value, deadline ) VALUES (2, 1, "risparmi generali", 12000.00, 8350.00, "2025-12-31")
