@@ -1,6 +1,7 @@
 import axios from '../../api/axios';
 import { useEffect, useState } from 'react';
 import AreaChart from './AreaChart';
+import DoughnutChartExpense from './DoughnutChartExpense';
 export default function TransactionsChart() {
   const [transactionsData, setTransactionsData] = useState([]);
   const [chartData, setChartData] = useState([]);
@@ -25,6 +26,7 @@ export default function TransactionsChart() {
   const compileData = () => {
     let newArr = transactionsData.map((elem) => {
       return {
+        id: elem.id,
         amount: elem.amount,
         vendor: elem.vendor,
         category: elem.category,
@@ -40,8 +42,13 @@ export default function TransactionsChart() {
   }, [transactionsData]);
 
   return (
-    <div className='h-90 w-90   '>
-      <AreaChart externalData={chartData} />
-    </div>
+    <>
+      <div className='h-90 w-90   '>
+        <AreaChart externalData={chartData} />
+      </div>
+      <div className='h-90 w-90 '>
+        <DoughnutChartExpense externalData={chartData} />
+      </div>
+    </>
   );
 }
