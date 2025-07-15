@@ -2,25 +2,13 @@ import axios from '../../api/axios';
 import { useEffect, useState } from 'react';
 import AreaChart from './AreaChart';
 import DoughnutChartExpense from './DoughnutChartExpense';
-export default function TransactionsChart() {
+export default function TransactionsChart({ data, type }) {
   const [transactionsData, setTransactionsData] = useState([]);
-  const [chartData, setChartData] = useState([]);
+  const [chartData, setChartData] = useState([data]);
 
-  /* fetching */
-  const fetchData = async () => {
-    try {
-      const res = await axios.get('api/transaction/');
-      if (res.status === 200) {
-        setTransactionsData(res.data);
-        console.log(res.data);
-      }
-    } catch (err) {
-      console.error('error while fetching data', err);
-    }
-  };
   useEffect(() => {
-    fetchData();
-  }, []);
+    setTransactionsData(data || []);
+  }, [data]);
 
   /* compile data to ease the chart rendering */
   const compileData = () => {
@@ -43,11 +31,22 @@ export default function TransactionsChart() {
 
   return (
     <>
-      <div className='h-90 w-90   '>
-        <AreaChart externalData={chartData} />
-      </div>
-      <div className='h-90 w-90 '>
-        <DoughnutChartExpense externalData={chartData} />
+      <div className='mx-auto '>
+        {type === 'area' ? (
+          <div className='h-90 max-w-90  '>
+            <AreaChart externalData={chartData} />
+          </div>
+        ) : (
+          ''
+        )}
+
+        {type === 'doughnut' ? (
+          <div className='h-90 max-w-90   '>
+            <DoughnutChartExpense externalData={chartData} />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     </>
   );

@@ -113,7 +113,7 @@ export default function DefaultLayout() {
               </SidebarItems>
             </Sidebar>
           </div>
-          <div>
+          <div className='col-span-5'>
             <Outlet></Outlet>
           </div>
         </div>

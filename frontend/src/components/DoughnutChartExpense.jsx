@@ -90,6 +90,8 @@ export default function DoughnutChartExpense({ externalData }) {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 1,
     plugins: {
       legend: {
         position: 'bottom',
@@ -105,6 +107,9 @@ export default function DoughnutChartExpense({ externalData }) {
       },
     },
   };
-
-  return <Doughnut data={chartData} options={options} />;
+  return (
+    <div className='w-full max-w-lg mx-auto h-auto'>
+      <Doughnut data={chartData} options={options} />
+    </div>
+  );
 }
