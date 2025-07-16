@@ -60,7 +60,7 @@ export default function ReceiptForm() {
   };
 
   return (
-    <form className='flex max-w-md flex-col gap-4 pt-4' onSubmit={handleSubmit}>
+    <form className='flex max-w-md flex-col gap-4' onSubmit={handleSubmit}>
       {error && <div className='text-red-500 text-sm mb-2'>{error}</div>}
 
       <div>
@@ -120,7 +120,6 @@ export default function ReceiptForm() {
               id='expense'
               name='type'
               value='expense'
-              checked={formData.type === 'expense'}
               onChange={handleFieldChange}
               defaultChecked
             />
@@ -131,7 +130,6 @@ export default function ReceiptForm() {
               id='income'
               name='type'
               value='income'
-              checked={formData.type === 'income'}
               onChange={handleFieldChange}
             />
             <Label htmlFor='income'>entrata</Label>
