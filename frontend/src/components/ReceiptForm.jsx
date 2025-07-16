@@ -1,4 +1,4 @@
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Button, Radio, Label, TextInput } from 'flowbite-react';
 import { Link, useNavigate } from 'react-router';
 import axios from '../../api/axios';
 import { useState } from 'react';
@@ -65,7 +65,7 @@ export default function ReceiptForm() {
 
       <div>
         <div className='mb-2 block'>
-          <Label htmlFor='amount'>Amount</Label>
+          <Label htmlFor='amount'>Valore</Label>
         </div>
         <TextInput
           id='amount'
@@ -82,7 +82,7 @@ export default function ReceiptForm() {
 
       <div>
         <div className='mb-2 block'>
-          <Label htmlFor='category'>Category</Label>
+          <Label htmlFor='category'>Categoria</Label>
         </div>
         <TextInput
           id='category'
@@ -97,7 +97,7 @@ export default function ReceiptForm() {
 
       <div>
         <div className='mb-2 block'>
-          <Label htmlFor='vendor'>Vendor</Label>
+          <Label htmlFor='vendor'>Venditore</Label>
         </div>
         <TextInput
           id='vendor'
@@ -112,23 +112,36 @@ export default function ReceiptForm() {
 
       <div>
         <div className='mb-2 block'>
-          <Label htmlFor='type'>Type</Label>
+          <Label htmlFor='type'>Tipologia</Label>
         </div>
-        <TextInput
-          id='type'
-          name='type'
-          type='text'
-          placeholder='es. frutta, verdura, ecc.'
-          value={formData.type}
-          onChange={handleFieldChange}
-          required
-          shadow
-        />
+        <div className='flex max-w-md flex-col gap-4'>
+          <div className='flex items-center gap-2'>
+            <Radio
+              id='expense'
+              name='type'
+              value='expense'
+              checked={formData.type === 'expense'}
+              onChange={handleFieldChange}
+              defaultChecked
+            />
+            <Label htmlFor='expense'>spesa</Label>
+          </div>
+          <div className='flex items-center gap-2'>
+            <Radio
+              id='income'
+              name='type'
+              value='income'
+              checked={formData.type === 'income'}
+              onChange={handleFieldChange}
+            />
+            <Label htmlFor='income'>entrata</Label>
+          </div>
+        </div>
       </div>
 
       <div>
         <div className='mb-2 block'>
-          <Label htmlFor='date'>Date</Label>
+          <Label htmlFor='date'>Data</Label>
         </div>
         <TextInput
           id='date'
@@ -142,7 +155,7 @@ export default function ReceiptForm() {
       </div>
 
       <Button type='submit' disabled={loading}>
-        {loading ? 'Adding...' : 'Add Transaction'}
+        {loading ? 'In corso...' : 'Aggiungi Transazione'}
       </Button>
     </form>
   );
