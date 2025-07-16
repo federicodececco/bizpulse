@@ -11,14 +11,14 @@ export default function FileSubmit() {
 
   const validateFile = (file) => {
     const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf'];
-    const maxSize = 10 * 1024 * 1024; // 10MB
+    const maxSize = 5 * 1024 * 1024; // 5MB
 
     if (!allowedTypes.includes(file.type)) {
       return 'Tipo di file non valido. Solo PNG, PDF o JPG sono permessi.';
     }
 
     if (file.size > maxSize) {
-      return 'File troppo grande. Massimo 10MB.';
+      return 'File troppo grande. Massimo 5MB.';
     }
 
     return null;
@@ -29,8 +29,10 @@ export default function FileSubmit() {
     formData.append('file', file);
 
     try {
-       const result = await axios.post('api/transaction/', formData);
-   
+      const response = await axios.post('api/transaction/upload', formData);
+      
+      
+      const result = response.data;
       
       if (result.success) {
         return { success: true, url: result.fileUrl, fileName: file.name };
@@ -38,10 +40,16 @@ export default function FileSubmit() {
         return { success: false, error: result.message };
       }
     } catch (error) {
+      console.error('Upload error:', error);
+      
+     
+      if (error.response && error.response.data) {
+        return { success: false, error: error.response.data.message || 'Errore del server' };
+      }
+      
       return { success: false, error: 'Errore di rete durante il caricamento' };
     }
   };
-
   const handleFiles = async (files) => {
     setError('');
     setUploading(true);
